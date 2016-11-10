@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dou.todou">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_todou"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppThemeNoTitle">
+        <activity
+            android:name=".TODOuEnt"
+            android:icon="@mipmap/ic_todou"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+        activity
+            android:name=".MainActivity"
+            android:label="TODOu_deprecated">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity
+        -->
+        <activity
+            android:name=".ItemDetail"
+            android:excludeFromRecents="true"
+            android:icon="@mipmap/ic_todou_new"
+            android:label="New TODOu"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TODOuEnt" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.dou.todou.notifyParentRefresh" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".TODOuAlarmService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name=".TODOuAlarmReciver"
+            android:enabled="true"
+            android:exported="true"
+            >
+            <intent-filter
+                android:priority="1000">
+                <action android:name="com.dou.todou.alarm" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".TODOuWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.dou.tudou.wiget.button.add"/>
+                <action android:name="com.dou.tudou.wiget.button.main"/>
+                <action android:name="com.dou.tudou.wiget.button.refresh"/>
+                <action android:name="com.dou.tudou.wiget.list.item"/>
+                <action android:name="com.dou.todou.notifyParentRefresh"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/todou_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".TODOuAlarmService2"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <service android:name=".TODOuWidgetRemoteService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            android:exported="false"/>
+    </application>
+
+</manifest>

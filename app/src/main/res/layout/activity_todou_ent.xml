@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TODOuEnt">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativeLayout_ent_title"
+            android:gravity="center_horizontal"
+            android:background="@color/colorPrimary">
+
+            <com.camnter.easyslidingtabs.widget.EasySlidingTabs
+                android:id="@+id/easy_sliding_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:easyIndicatorColor="@color/color_bar"
+                app:easySelectedTagTextColor="#f0d5e5f2"
+                app:easyTabTextColor="#c15587b3"
+                app:easyUnderlineColor="#ebd1f5ff"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@color/colorPrimary"
+                android:layout_toLeftOf="@+id/imageButton_ent_more" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton_ent_more"
+                android:background="@drawable/abc_ic_menu_moreoverflow_mtrl_alpha"
+                android:layout_alignParentTop="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/easy_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/relativeLayout_ent_title" />
+    </RelativeLayout>
+
+</RelativeLayout>
